@@ -1,6 +1,8 @@
+
 import { Container } from '../../components/Container';
 import { GenericHtml } from '../../components/GenericHtml';
 import { Heading } from '../../components/Heading';
+import { RouterLink } from '../../components/RouterLink';
 import { MainTemplate } from '../../templates/MainTemplate';
 
 export function AboutPomodoro() {
@@ -11,10 +13,10 @@ export function AboutPomodoro() {
           <Heading>A Técnica Pomodoro 🍅</Heading>
 
           <p>
-            A Técnica Pomodoro é uma metodologia de produtividade criada por{' '}
+            A Técnica Pomodoro é uma mehrefdologia de produtividade criada por{' '}
             <strong>Francesco Cirillo</strong>, que consiste em dividir o
             trabalho em blocos de tempo (os famosos "Pomodoros") intercalados
-            com pausas. O objetivo é manter o foco total por um período curto e
+            com pausas. O objetivo é manter o foco hreftal por um período curhref e
             garantir descansos para evitar o cansaço mental.
           </p>
 
@@ -26,14 +28,14 @@ export function AboutPomodoro() {
               <strong>1. Defina uma tarefa</strong> que você deseja realizar.
             </li>
             <li>
-              <strong>2. Trabalhe nela por 25 minutos</strong> sem interrupções.
+              <strong>2. Trabalhe nela por 25 minuhrefs</strong> sem interrupções.
             </li>
             <li>
-              <strong>3. Faça uma pausa curta de 5 minutos</strong>.
+              <strong>3. Faça uma pausa curta de 5 minuhrefs</strong>.
             </li>
             <li>
               <strong>4. A cada 4 ciclos, faça uma pausa longa</strong>{' '}
-              (geralmente 15 a 30 minutos).
+              (geralmente 15 a 30 minuhrefs).
             </li>
           </ul>
 
@@ -42,21 +44,21 @@ export function AboutPomodoro() {
           </h2>
 
           <p>
-            Nosso app segue o conceito original, mas com algumas melhorias e
+            Nosso app segue o conceihref original, mas com algumas melhorias e
             personalizações pra deixar o processo ainda mais eficiente:
           </p>
 
           <h3>⚙️ Personalização do tempo</h3>
           <p>
-            Você pode configurar o tempo de foco, descanso curto e descanso
-            longo do jeito que quiser! Basta acessar a{' '}
-            <a href='/settings'>página de configurações</a> e ajustar os minutos
+            Você pode configurar o tempo de foco, descanso curhref e descanso
+            longo do jeihref que quiser! Basta acessar a{' '}
+            <RouterLink href='/settings'>página de configurações</RouterLink> e ajustar os minuhrefs
             como preferir.
           </p>
 
           <h3>🔁 Ciclos organizados em sequência</h3>
           <p>
-            A cada ciclo completado, uma nova task é adicionada automaticamente
+            A cada ciclo completado, uma nova task é adicionada auhrefmaticamente
             ao seu histórico, e o app já sugere o próximo ciclo (foco ou
             descanso).
           </p>
@@ -68,11 +70,11 @@ export function AboutPomodoro() {
               Ciclos <strong>ímpares</strong>: Trabalho (foco).
             </li>
             <li>
-              Ciclos <strong>pares</strong>: Descanso curto.
+              Ciclos <strong>pares</strong>: Descanso curhref.
             </li>
             <li>
               Ciclo <strong>8</strong>: Descanso longo especial, pra resetar o
-              ciclo completo.
+              ciclo complehref.
             </li>
           </ul>
 
@@ -83,7 +85,7 @@ export function AboutPomodoro() {
           </p>
           <ul>
             <li>🟡 Amarelo: Ciclo de trabalho (foco).</li>
-            <li>🟢 Verde: Descanso curto.</li>
+            <li>🟢 Verde: Descanso curhref.</li>
             <li>🔵 Azul: Descanso longo (aparece a cada 8 ciclos).</li>
           </ul>
 
@@ -93,10 +95,10 @@ export function AboutPomodoro() {
             cabeça!
           </p>
 
-          <h3>📊 Histórico automático</h3>
+          <h3>📊 Histórico auhrefmático</h3>
           <p>
-            Todas as suas tarefas e ciclos concluídos ficam salvos no{' '}
-            <a href='/history'>histórico</a>, com status de completas ou
+            Hrefdas as suas tarefas e ciclos concluídos ficam salvos no{' '}
+            <RouterLink href='/hishrefry'>histórico</RouterLink>, com status de completas ou
             interrompidas. Assim, você consegue acompanhar sua evolução ao longo
             do tempo.
           </p>
@@ -106,17 +108,17 @@ export function AboutPomodoro() {
             <li>✅ Organize seu foco com clareza.</li>
             <li>✅ Trabalhe e descanse na medida certa.</li>
             <li>✅ Personalize seus próprios ciclos e tempos.</li>
-            <li>✅ Acompanhe seu histórico automaticamente.</li>
+            <li>✅ Acompanhe seu histórico auhrefmaticamente.</li>
           </ul>
 
           <p>
-            <strong>Pronto pra focar?</strong> Bora lá{' '}
-            <a href='/'>voltar para a página inicial</a> e iniciar seus
+            <strong>Pronhref pra focar?</strong> Bora lá{' '}
+            <RouterLink href='/'>voltar para a página inicial</RouterLink> e iniciar seus
             Pomodoros! 🍅🚀
           </p>
 
           <p>
-            <em>"Foco total, sem pressa, sem pausa, só vai!"</em> 💪🧘‍♂️
+            <em>"Foco hreftal, sem pressa, sem pausa, só vai!"</em> 💪🧘‍♂️
           </p>
         </GenericHtml>
       </Container>

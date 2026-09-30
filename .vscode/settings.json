@@ -1,15 +1,15 @@
 {
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "breadcrumbs.enabled": false,
-  "editor.fontSize": 24,
-  "debug.console.fontSize": 24,
-  "terminal.integrated.fontSize": 24,
+  "editor.fontSize": 18,
+  "debug.console.fontSize": 18,
+  "terminal.integrated.fontSize": 18,
   "editor.glyphMargin": false,
-  "workbench.activityBar.location": "hidden",
-  "editor.lineNumbers": "off",
+  "workbench.activityBar.location": "default",
+  "editor.lineNumbers": "on",
   "files.eol": "\n", // Final de linha sempre será LF
   "workbench.editor.labelFormat": "short",
-  "editor.tabSize": 2,
+  "editor.tabSize": 1,
   "explorer.compactFolders": false,
 
   // 🛠 Formatação e Lint
