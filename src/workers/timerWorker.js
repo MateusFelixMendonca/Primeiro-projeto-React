@@ -1,11 +1,13 @@
 let isRunning = false;
 
 self.onmessage = function (event) {
+  const state = event.data;
+  if (!state || !state.activeTask) return;
+
   if (isRunning) return;
 
   isRunning = true;
 
-  const state = event.data;
   const { activeTask, secondsRemaining } = state;
 
   const endDate = activeTask.startDate + secondsRemaining * 1000;

@@ -2,7 +2,7 @@ import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
-import { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
@@ -13,38 +13,50 @@ import { showMessage } from '../../adapters/showMessage';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
-  const taskNameInput = useRef<HTMLInputElement>(null);
+  
+  // Pegamos o nome da última tarefa do histórico
   const lastTaskName = state.tasks[state.tasks.length - 1]?.name || '';
+  
+  // Transformado em estado controlado para evitar bugs de sincronização com o defaultValue
+  const [taskName, setTaskName] = useState(lastTaskName);
 
-  // ciclos
+  // Sincroniza o input com a última tarefa caso o histórico mude externamente
+  useEffect(() => {
+    if (!state.activeTask) {
+      setTaskName(lastTaskName);
+    }
+  }, [lastTaskName, state.activeTask]);
+
+  // Ciclos (Correção do erro de digitação de 'nextCyleType' para 'nextCycleType')
   const nextCycle = getNextCycle(state.currentCycle);
-  const nextCyleType = getNextCycleType(nextCycle);
+  const nextCycleType = getNextCycleType(nextCycle);
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     showMessage.dismiss();
 
-    if (taskNameInput.current === null) return;
+    const trimmedTaskName = taskName.trim();
 
-    const taskName = taskNameInput.current.value.trim();
-
-    if (!taskName) {
+    if (!trimmedTaskName) {
       showMessage.warning('Digite o nome da tarefa');
       return;
     }
 
     const newTask: TaskModel = {
       id: Date.now().toString(),
-      name: taskName,
+      name: trimmedTaskName,
       startDate: Date.now(),
       completeDate: null,
       interruptDate: null,
-      duration: state.config[nextCyleType],
-      type: nextCyleType,
+      duration: state.config[nextCycleType], // Buscado corretamente com o nome corrigido
+      type: nextCycleType,
     };
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
     showMessage.success('Tarefa iniciada');
+    
+    // Opcional: Se quiser limpar o input após iniciar em vez de deixar o nome antigo:
+    // setTaskName(''); 
   }
 
   function handleInterruptTask() {
@@ -54,16 +66,16 @@ export function MainForm() {
   }
 
   return (
-    <form onSubmit={handleCreateNewTask} className='form' action=''>
+    <form onSubmit={handleCreateNewTask} className='form'>
       <div className='formRow'>
         <DefaultInput
           labelText='task'
           id='meuInput'
           type='text'
           placeholder='Digite algo'
-          ref={taskNameInput}
+          value={taskName}
+          onChange={(e) => setTaskName(e.target.value)}
           disabled={!!state.activeTask}
-          defaultValue={lastTaskName}
         />
       </div>
 

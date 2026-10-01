@@ -51,11 +51,12 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
   useEffect(() => {
     localStorage.setItem('state', JSON.stringify(state));
 
+    document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
+
     if (!state.activeTask) {
       worker.terminate();
+      return;
     }
-
-    document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
 
     worker.postMessage(state);
   }, [worker, state]);
